@@ -11,8 +11,17 @@ public class Main {
     while (acaoEscolhida >= 0) {
       acaoEscolhida = menuAcoes(scanner);
       if (acaoEscolhida == 0) {
-        int idConta = b.criarConta();
-        System.out.println("Id da conta criada: " + idConta);
+        System.out.println("1 - para conta corrente, 2 - para conta poupanca, 3 - para conta Bonificada");
+        int tipo_conta = scanner.nextInt();
+        if (tipo_conta == 1){
+          int idConta = b.criarConta();
+          System.out.println("Id da conta criada: " + idConta);
+        } else if (tipo_conta == 2){
+          int idConta = b.criarPoupanca();
+        } else if (tipo_conta == 3){
+          int idConta = b.criarContaBonificada();
+        }
+      
       } else if (acaoEscolhida == 1) {
         int contaEscolhida = lerNumeroConta(scanner);
         System.out.print("Quanto vocè quer depositar: ");
@@ -26,6 +35,12 @@ public class Main {
       } else if (acaoEscolhida == 3) {
         int contaEscolhida = lerNumeroConta(scanner);
         System.out.println("saldo é " + b.getSaldo(contaEscolhida));
+      } else if (acaoEscolhida == 4) {
+        int contaEscolhida = lerNumeroConta(scanner);
+        b.rendePoupanca(contaEscolhida);
+      } else if (acaoEscolhida == 5) {
+        int contaEscolhida = lerNumeroConta(scanner);
+        b.rendeBonus(contaEscolhida);
       }
     }
     scanner.close();

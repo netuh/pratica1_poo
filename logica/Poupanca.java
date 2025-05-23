@@ -3,8 +3,8 @@ package logica;
 public class Poupanca extends Conta{
 
 	public void rendeConta(){
-		double d = this.getSaldo();
+		double d = super.getSaldo();
 		d = d *0.01;
-		creditar(d);
+		super.creditar(d);
 	}
 }

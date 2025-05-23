@@ -19,6 +19,19 @@ public class Banco {
 		return aux;
 	}
 
+	public int criarPoupanca (){
+		contas[contadorDeContas] = new Poupanca();
+		int aux = contadorDeContas;
+		contadorDeContas++;
+		return aux;
+	}
+
+	public int criarContaBonificada() {
+		contas[contadorDeContas] = new ContaBonificada();
+		int aux = contadorDeContas;
+		contadorDeContas++;
+		return aux;
+	}
 
 	public String getNome() {
     return nomeBanco;
@@ -44,4 +57,22 @@ public class Banco {
 		}
 		return -1;
 	}
+
+	public void rendePoupanca(int idConta){
+		if (idConta < contadorDeContas) {
+			if (contas[idConta] instanceof Poupanca){
+				Poupanca p = (Poupanca)contas[idConta];
+				p.rendeConta();
+			}
+		}
+	}
+
+  public void rendeBonus(int idConta) {
+    if (idConta < contadorDeContas) {
+			if (contas[idConta] instanceof ContaBonificada){
+				ContaBonificada c = (ContaBonificada)contas[idConta];
+				c.rendeBonus();
+			}
+		}
+  }
 }
